@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Legali · Privacy, Cookie & Termini | AI+Tempo</title>
+    <meta name="description" content="Privacy Policy, Cookie Policy e Termini di Servizio di AI+Tempo. Trattamento dati conforme al Regolamento GDPR UE 2016/679.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo-icon.png">
+    <style>
+        /* =========================================
+           DESIGN SYSTEM — AI+Tempo
+           ========================================= */
+
+        :root {
+            --bg-base:       #FFFFFF;
+            --bg-section:    #F8FAFC;
+            --bg-card:       #FFFFFF;
+            --bg-card-hover: #F8FAFC;
+            --border-card:   #E2E8F0;
+            --border-hover:  #F97316;
+
+            --color-primary: #2563EB;
+            --color-purple:  #7C3AED;
+            --color-orange:  #F97316;
+            --color-green:   #16A34A;
+
+            --color-text:        #0F172A;
+            --color-muted:       #64748B;
+            --color-muted-dark:  #94A3B8;
+
+            --font-main: 'Outfit', system-ui, sans-serif;
+
+            --radius-card: 1rem;
+            --radius-pill: 9999px;
+            --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+
+            --transition: all 0.25s ease;
+        }
+
+        /* ---- Reset & Base ---- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--color-text);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- Typography ---- */
+        .text-accent { color: var(--color-orange); }
+
+        /* ---- Card ---- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10), 0 16px 40px rgba(0,0,0,0.08);
+        }
+
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: var(--radius-pill);
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 18px rgba(37,99,235,0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 1.5px solid var(--border-card);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        /* ---- Badge ---- */
+        .badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.2rem 0.65rem;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.02em;
+        }
+
+        .badge-blue   { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .badge-purple { background: #F5F3FF; color: #6D28D9; border: 1px solid #DDD6FE; }
+        .badge-orange { background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; }
+        .badge-green  { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+        .badge-gray   { background: #F8FAFC; color: #475569; border: 1px solid #E2E8F0; }
+
+        /* ---- Reveal animation ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-delay-1 { transition-delay: 0.10s; }
+        .reveal-delay-2 { transition-delay: 0.20s; }
+        .reveal-delay-3 { transition-delay: 0.30s; }
+        .reveal-delay-4 { transition-delay: 0.40s; }
+
+        /* ---- Section label ---- */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 0.875rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 1.25rem;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        /* ---- Layout ---- */
+        .container {
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        .section    { padding-block: 6rem; }
+        .section-sm { padding-block: 4rem; }
+
+        /* ---- Band ---- */
+        .band { background: var(--bg-section); }
+
+        /* =========================================
+           NAVBAR
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-card);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            max-width: 1160px;
+            margin-inline: auto;
+        }
+
+        .logo {
+            font-family: var(--font-main);
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo-img-nav {
+            display: block;
+            height: 64px;
+            width: auto;
+        }
+
+        .logo-name { font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--color-text); }
+
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.55rem 1.25rem !important;
+            font-size: 0.85rem !important;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px; height: 2px;
+            background: var(--color-text);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            padding: 0 1.5rem 1.25rem;
+            border-top: 1px solid var(--border-card);
+            background: #fff;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-muted);
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-card);
+            transition: color 0.2s;
+        }
+
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--color-text); }
+        .mobile-menu .btn { margin-top: 1rem; width: 100%; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hamburger    { display: flex; }
+            .nav-links    { display: none; }
+            .nav-cta      { display: none; }
+        }
+
+        /* =========================================
+           LOGO IMG
+           ========================================= */
+        .logo-img-footer {
+            display: block;
+            height: 72px;
+            width: auto;
+            margin-inline: auto;
+            margin-bottom: 1rem;
+        }
+
+        /* =========================================
+           PAGE HEADER (legal hero)
+           ========================================= */
+        .legal-header {
+            padding-top: 9rem;
+            padding-bottom: 4rem;
+            text-align: center;
+        }
+
+        .legal-header h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .legal-header p {
+            font-size: 1rem;
+            color: var(--color-muted);
+            max-width: 560px;
+            margin-inline: auto;
+            line-height: 1.75;
+        }
+
+        .legal-meta {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* =========================================
+           TABLE OF CONTENTS
+           ========================================= */
+        .toc-card {
+            padding: 1.75rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .toc-card h3 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .toc-list { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .toc-list { grid-template-columns: 1fr; }
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-muted);
+            text-decoration: none;
+            padding: 0.6rem 0.85rem;
+            border-radius: 0.625rem;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .toc-list a:hover {
+            color: var(--color-text);
+            background: #EFF6FF;
+            border-color: #BFDBFE;
+        }
+
+        .toc-num {
+            font-size: 0.65rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* =========================================
+           LEGAL CONTENT SECTIONS
+           ========================================= */
+        .legal-section {
+            padding-block: 4.5rem;
+        }
+
+        .legal-section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section-header h2 {
+            font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 0.6rem;
+        }
+
+        .legal-section-header p {
+            font-size: 0.95rem;
+            color: var(--color-muted);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: var(--radius-card);
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-box-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box dl {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 520px) {
+            .info-box dl { grid-template-columns: 1fr; gap: 0.25rem; }
+            .info-box dt { margin-top: 0.75rem; }
+        }
+
+        .info-box dt {
+            font-weight: 600;
+            color: var(--color-muted);
+            white-space: nowrap;
+        }
+
+        .info-box dd {
+            color: var(--color-text);
+        }
+
+        .info-box dd a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .info-box dd a:hover { text-decoration: underline; }
+
+        /* Article block */
+        .legal-article {
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .legal-article:hover {
+            transform: none;
+        }
+
+        .legal-article h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .art-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .legal-article p {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            line-height: 1.75;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-article p:last-child { margin-bottom: 0; }
+
+        .legal-article ul, .legal-article ol {
+            margin: 0.5rem 0 0.75rem 0;
+            padding-left: 0;
+            list-style: none;
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            line-height: 1.7;
+        }
+
+        .legal-article ul li {
+            padding: 0.3rem 0 0.3rem 1.25rem;
+            position: relative;
+        }
+
+        .legal-article ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            top: 0.38rem;
+        }
+
+        .legal-article ol {
+            counter-reset: ol-counter;
+        }
+
+        .legal-article ol li {
+            counter-increment: ol-counter;
+            padding: 0.3rem 0 0.3rem 1.75rem;
+            position: relative;
+        }
+
+        .legal-article ol li::before {
+            content: counter(ol-counter) ".";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-size: 0.72rem;
+            top: 0.42rem;
+            font-weight: 700;
+        }
+
+        .legal-article strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .legal-article a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .legal-article a:hover { text-decoration: underline; }
+
+        /* Rights grid */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 620px) {
+            .rights-grid { grid-template-columns: 1fr; }
+        }
+
+        .right-item {
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.875rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .right-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .right-item p {
+            font-size: 0.82rem;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* Cookie table */
+        .cookie-table-wrapper {
+            overflow-x: auto;
+            margin-top: 1rem;
+            border-radius: var(--radius-card);
+            border: 1px solid var(--border-card);
+            box-shadow: var(--shadow-card);
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.83rem;
+            min-width: 560px;
+        }
+
+        .cookie-table thead {
+            background: #EFF6FF;
+        }
+
+        .cookie-table th {
+            padding: 0.9rem 1.1rem;
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            white-space: nowrap;
+        }
+
+        .cookie-table td {
+            padding: 0.85rem 1.1rem;
+            color: var(--color-muted);
+            border-top: 1px solid var(--border-card);
+            vertical-align: top;
+            line-height: 1.55;
+        }
+
+        .cookie-table tr:last-child td { border-bottom: none; }
+        .cookie-table td:first-child { color: var(--color-text); font-weight: 600; }
+
+        /* Cookie preference panel */
+        .cookie-panel {
+            padding: 1.75rem 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .cookie-panel h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--color-text);
+        }
+
+        .cookie-toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .cookie-toggle-row:last-of-type { border-bottom: none; }
+
+        .cookie-toggle-info p {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.2rem;
+        }
+
+        .cookie-toggle-info span {
+            font-size: 0.8rem;
+            color: var(--color-muted);
+        }
+
+        /* Toggle switch */
+        .toggle-switch {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input[type="checkbox"] {
+            opacity: 0;
+            width: 0; height: 0;
+            position: absolute;
+        }
+
+        .toggle-label {
+            display: block;
+            width: 46px; height: 26px;
+            background: var(--border-card);
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-card);
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .toggle-label::after {
+            content: '';
+            position: absolute;
+            top: 3px; left: 3px;
+            width: 18px; height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        input[type="checkbox"]:checked + .toggle-label {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        input[type="checkbox"]:checked + .toggle-label::after {
+            transform: translateX(20px);
+            background: #fff;
+        }
+
+        input[type="checkbox"]:disabled + .toggle-label {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .toggle-required {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--color-green);
+            letter-spacing: 0.05em;
+        }
+
+        .cookie-save-btn {
+            margin-top: 1.5rem;
+            font-family: var(--font-main);
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.7rem 1.75rem;
+            border-radius: var(--radius-pill);
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cookie-save-btn:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================
+           GDPR COOKIE BANNER
+           ========================================= */
+        .cookie-banner {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 820px;
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            padding: 1.1rem 1.5rem;
+            background: #fff;
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            flex-wrap: wrap;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .cookie-banner.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-50%) translateY(120%);
+        }
+
+        .cookie-text {
+            font-size: 0.83rem;
+            color: var(--color-muted);
+            line-height: 1.65;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .cookie-text strong { color: var(--color-text); }
+        .cookie-text a { color: var(--color-primary); text-decoration: none; }
+        .cookie-text a:hover { text-decoration: underline; }
+
+        .cookie-actions {
+            display: flex;
+            gap: 0.6rem;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-cookie-accept {
+            font-family: var(--font-main);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            background: var(--color-primary);
+            color: #fff;
+            transition: var(--transition);
+        }
+
+        .btn-cookie-accept:hover { background: #1D4ED8; }
+
+        .btn-cookie-reject {
+            font-family: var(--font-main);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--border-card);
+            cursor: pointer;
+            background: transparent;
+            color: var(--color-muted);
+            transition: var(--transition);
+        }
+
+        .btn-cookie-reject:hover { color: var(--color-text); border-color: #94A3B8; }
+
+        @media (max-width: 560px) {
+            .cookie-banner { bottom: 0; border-radius: 1rem 1rem 0 0; width: 100%; left: 0; transform: none; }
+            .cookie-banner.hidden { transform: translateY(120%); }
+            .cookie-actions { width: 100%; justify-content: flex-end; }
+        }
+
+        /* ---- Footer ---- */
+        .footer {
+            background: var(--bg-section);
+            border-top: 1px solid var(--border-card);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--color-text); }
+
+        /* ---- Breadcrumb ---- */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--color-muted-dark);
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--color-text); }
+
+        /* ---- Divider ---- */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-card);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================
+         NAVBAR
+         ======================== -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-icon.png" alt="AI+Tempo" class="logo-img-nav">
+                <span class="logo-name">AI+Tempo</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#problema">Il Problema</a></li>
+                <li><a href="index.html#metodo">Come Lavoro</a></li>
+                <li><a href="index.html#soluzioni">Soluzioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="legal.html" class="active">Legal</a></li>
+            </ul>
+            <a href="contatti.html" class="btn btn-primary nav-cta">Analisi Gratuita →</a>
+            <button class="hamburger" id="hamburger" aria-label="Apri menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-link">Il Problema</a>
+            <a href="index.html#metodo"   class="mobile-link">Come Lavoro</a>
+            <a href="index.html#soluzioni" class="mobile-link">Soluzioni</a>
+            <a href="contatti.html" class="mobile-link">Contatti</a>
+            <a href="legal.html" class="mobile-link">Legal</a>
+            <a href="contatti.html" class="btn btn-primary">Analisi Gratuita →</a>
+        </div>
+    </nav>
+
+    <!-- ========================
+         PAGE HEADER
+         ======================== -->
+    <header class="legal-header container">
+        <div class="breadcrumb reveal">
+            <a href="index.html">← Torna alla Home</a>
+        </div>
+        <p class="section-label reveal">Note Legali</p>
+        <h1 class="reveal reveal-delay-1">
+            Privacy, Cookie<br>
+            <span class="gradient-text">&amp; Termini di Servizio</span>
+        </h1>
+        <p class="reveal reveal-delay-2">
+            Tutte le informazioni legali di AI+Tempo in un'unica pagina.<br>
+            Conformi al <strong>Regolamento UE 2016/679 (GDPR)</strong> e al Codice del Consumo italiano.
+        </p>
+        <div class="legal-meta reveal reveal-delay-3">
+            <span class="badge badge-blue">GDPR UE 2016/679</span>
+            <span class="badge badge-gray">D.Lgs. 196/2003</span>
+            <span class="badge badge-green">Ultima revisione: Marzo 2025</span>
+        </div>
+    </header>
+
+    <!-- ========================
+         TABLE OF CONTENTS
+         ======================== -->
+    <section class="section-sm">
+        <div class="container">
+            <div class="card toc-card reveal">
+                <h3>Indice dei Contenuti</h3>
+                <ul class="toc-list">
+                    <li><a href="#privacy"><span class="toc-num">01</span> Privacy Policy</a></li>
+                    <li><a href="#dati-raccolti"><span class="toc-num">02</span> Dati Raccolti</a></li>
+                    <li><a href="#finalita"><span class="toc-num">03</span> Finalità e Basi Giuridiche</a></li>
+                    <li><a href="#conservazione"><span class="toc-num">04</span> Conservazione Dati</a></li>
+                    <li><a href="#terzi"><span class="toc-num">05</span> Terze Parti</a></li>
+                    <li><a href="#diritti"><span class="toc-num">06</span> I Tuoi Diritti GDPR</a></li>
+                    <li><a href="#cookie"><span class="toc-num">07</span> Cookie Policy</a></li>
+                    <li><a href="#gestione-cookie"><span class="toc-num">08</span> Gestione Cookie</a></li>
+                    <li><a href="#termini"><span class="toc-num">09</span> Termini di Servizio</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 1 — PRIVACY POLICY
+         ======================== -->
+    <section class="legal-section" id="privacy">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Privacy Policy</p>
+                <h2>Informativa sul Trattamento<br>dei Dati Personali</h2>
+                <p>
+                    Ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR), ti informiamo su come raccogliamo,
+                    utilizziamo e proteggiamo i tuoi dati personali quando visiti <strong>aipiutempo.it</strong>.
+                </p>
+            </div>
+
+            <div class="info-box reveal">
+                <p class="info-box-title">Titolare del Trattamento</p>
+                <dl>
+                    <dt>Titolare</dt>
+                    <dd>Marco Diozzi — AI+Tempo</dd>
+                    <dt>Sede</dt>
+                    <dd>Italia</dd>
+                    <dt>P.IVA</dt>
+                    <dd>02191120381</dd>
+                    <dt>Email privacy</dt>
+                    <dd><a href="mailto:info@aipiutempo.it">info@aipiutempo.it</a></dd>
+                    <dt>Sito web</dt>
+                    <dd><a href="https://aipiutempo.it">aipiutempo.it</a></dd>
+                    <dt>Aggiornamento</dt>
+                    <dd>Marzo 2025</dd>
+                </dl>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 2 — DATI RACCOLTI
+         ======================== -->
+    <section class="legal-section band" id="dati-raccolti">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Dati Raccolti</p>
+                <h2>Quali dati trattiamo</h2>
+                <p>Raccogliamo solo i dati strettamente necessari per erogare i servizi e rispondere alle richieste.</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">🌐</span> Dati di Navigazione</h3>
+                <p>
+                    I sistemi informatici acquisiscono automaticamente alcuni dati la cui trasmissione è implicita nell'uso dei protocolli Internet. In questa categoria rientrano:
+                </p>
+                <ul>
+                    <li>Indirizzi IP o nomi a dominio dei dispositivi che si connettono al sito</li>
+                    <li>Indirizzi URI/URL delle risorse richieste, orario e metodo della richiesta</li>
+                    <li>Dimensione del file in risposta e codice di stato HTTP</li>
+                    <li>Browser, sistema operativo e tipo di dispositivo (user-agent)</li>
+                </ul>
+                <p>
+                    Questi dati sono necessari per il corretto funzionamento tecnico e <strong>non vengono associati a persone identificate</strong>, salvo necessità legate ad accertamenti di illeciti informatici.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">📝</span> Dati Forniti Volontariamente</h3>
+                <p>Quando compili il modulo di contatto, fornisci volontariamente:</p>
+                <ul>
+                    <li><strong>Nome</strong> — per personalizzare la risposta</li>
+                    <li><strong>Indirizzo email</strong> — per risponderti</li>
+                    <li><strong>Tipologia di attività</strong> (artigiano, ASD, PMI) — per assistenza pertinente</li>
+                    <li><strong>Descrizione del problema</strong> — per capire le esigenze operative</li>
+                </ul>
+                <p>
+                    Il conferimento è facoltativo, ma necessario per ricevere una risposta. Il mancato conferimento rende impossibile risponderti.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">🔤</span> Dati Tecnici — Google Fonts</h3>
+                <p>
+                    Per la corretta visualizzazione grafica, il sito utilizza <strong>Google Fonts</strong> (Google LLC, USA). Al caricamento, il browser contatta i server di Google per scaricare i font (Outfit, JetBrains Mono), con possibile trasferimento dell'indirizzo IP negli USA. Google dichiara di non conservare tali dati oltre 24 ore.
+                </p>
+                <p>
+                    Per maggiori informazioni: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a>.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 3 — FINALITÀ
+         ======================== -->
+    <section class="legal-section" id="finalita">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Finalità e Basi Giuridiche</p>
+                <h2>Come e perché usiamo<br>i tuoi dati</h2>
+                <p>Il trattamento rispetta i principi di liceità, correttezza, trasparenza, minimizzazione e limitazione della finalità previsti dal GDPR.</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">💬</span> Gestione Richieste di Contatto</h3>
+                <p>I dati del modulo di contatto vengono trattati per rispondere alla tua richiesta e fornire l'analisi gratuita.</p>
+                <p><strong>Base giuridica:</strong> Esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6, par. 1, lett. b GDPR).</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">🔧</span> Funzionamento Tecnico del Sito</h3>
+                <p>I dati di navigazione sono trattati per gestire la sessione, garantire la sicurezza del sito e prevenire abusi.</p>
+                <p><strong>Base giuridica:</strong> Legittimo interesse del Titolare (art. 6, par. 1, lett. f GDPR) al corretto funzionamento del sito.</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">📊</span> Comunicazioni Commerciali</h3>
+                <p>Se hai espresso il consenso, i dati possono essere utilizzati per aggiornamenti sul servizio e risorse sulla digitalizzazione.</p>
+                <p><strong>Base giuridica:</strong> Consenso dell'interessato (art. 6, par. 1, lett. a GDPR), revocabile in qualsiasi momento scrivendo a <a href="mailto:info@aipiutempo.it">info@aipiutempo.it</a>.</p>
+                <p><strong>Nota:</strong> questa funzionalità non è ancora attiva. Verrà attivata solo con esplicito consenso.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 4 — CONSERVAZIONE
+         ======================== -->
+    <section class="legal-section band" id="conservazione">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Conservazione</p>
+                <h2>Per quanto tempo<br>conserviamo i tuoi dati</h2>
+                <p>Trattiamo i dati solo per il tempo necessario alle finalità per cui sono stati raccolti.</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">⏱️</span> Periodi di Conservazione</h3>
+                <ul>
+                    <li><strong>Dati di navigazione:</strong> massimo 90 giorni, salvo esigenze legate ad accertamenti</li>
+                    <li><strong>Modulo di contatto:</strong> 24 mesi dalla ricezione, o per l'intera durata del rapporto contrattuale</li>
+                    <li><strong>Dati di fatturazione/contratto (clienti):</strong> 10 anni per obblighi fiscali (art. 2220 c.c.)</li>
+                    <li><strong>Cookie tecnici:</strong> durata massima 12 mesi, rinnovati solo con consenso</li>
+                </ul>
+                <p>
+                    Al termine del periodo, i dati vengono cancellati in modo sicuro o resi anonimi e non più riconducibili alla persona.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 5 — TERZE PARTI
+         ======================== -->
+    <section class="legal-section" id="terzi">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Terze Parti</p>
+                <h2>Condivisione con terzi<br>e trasferimenti</h2>
+                <p>Non vendiamo né cediamo i tuoi dati a terzi per finalità commerciali.</p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">🤝</span> Responsabili del Trattamento</h3>
+                <p>Utilizziamo servizi di terze parti che trattano dati per conto nostro come Responsabili del Trattamento (art. 28 GDPR), vincolati contrattualmente al rispetto del GDPR:</p>
+                <ul>
+                    <li><strong>Hosting del sito:</strong> Provider VPS/Cloud (infrastruttura Coolify su server europeo)</li>
+                    <li><strong>Google LLC (Google Fonts):</strong> caricamento font tipografici</li>
+                    <li><strong>Provider email:</strong> per l'invio di risposte alle richieste di contatto</li>
+                </ul>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">🚫</span> Dati che Non Condividiamo Mai</h3>
+                <ul>
+                    <li>Non vendiamo dati a liste marketing di terzi</li>
+                    <li>Non condividiamo dati con piattaforme pubblicitarie (Meta, Google Ads, ecc.) senza consenso</li>
+                    <li>Non effettuiamo profilazione automatizzata a fini commerciali</li>
+                    <li>Non trasferiamo dati extra-UE senza adeguate garanzie (clausole contrattuali standard o Paesi con decisione di adeguatezza)</li>
+                </ul>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">⚖️</span> Obblighi di Legge</h3>
+                <p>
+                    I dati potranno essere comunicati alle Autorità giudiziarie o di vigilanza (Guardia di Finanza, Agenzia delle Entrate, Garante Privacy) qualora richiesto dalla legge, da provvedimento dell'Autorità o per la tutela dei diritti del Titolare in sede giudiziaria.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 6 — DIRITTI GDPR
+         ======================== -->
+    <section class="legal-section band" id="diritti">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">I Tuoi Diritti</p>
+                <h2>Diritti dell'Interessato<br>(Artt. 15–22 GDPR)</h2>
+                <p>Puoi esercitare in qualsiasi momento i seguenti diritti nei confronti del Titolare del Trattamento.</p>
+            </div>
+
+            <div class="rights-grid reveal">
+                <div class="right-item">
+                    <h4>🔍 Diritto di Accesso <span class="badge badge-blue" style="font-size:0.6rem;">Art. 15</span></h4>
+                    <p>Ottenere conferma del trattamento e copia dei dati personali che ti riguardano.</p>
+                </div>
+                <div class="right-item">
+                    <h4>✏️ Diritto di Rettifica <span class="badge badge-blue" style="font-size:0.6rem;">Art. 16</span></h4>
+                    <p>Ottenere la rettifica di dati inesatti o l'integrazione di quelli incompleti.</p>
+                </div>
+                <div class="right-item">
+                    <h4>🗑️ Diritto alla Cancellazione <span class="badge badge-orange" style="font-size:0.6rem;">Art. 17</span></h4>
+                    <p>Ottenere la cancellazione dei dati quando non sono più necessari rispetto alle finalità (c.d. "diritto all'oblio").</p>
+                </div>
+                <div class="right-item">
+                    <h4>⏸️ Diritto di Limitazione <span class="badge badge-blue" style="font-size:0.6rem;">Art. 18</span></h4>
+                    <p>Ottenere la limitazione del trattamento in determinati casi (es. verifica dell'esattezza dei dati).</p>
+                </div>
+                <div class="right-item">
+                    <h4>📦 Diritto alla Portabilità <span class="badge badge-green" style="font-size:0.6rem;">Art. 20</span></h4>
+                    <p>Ricevere i dati in formato strutturato e trasmetterli a un altro Titolare, se il trattamento è basato su consenso o contratto.</p>
+                </div>
+                <div class="right-item">
+                    <h4>🙅 Diritto di Opposizione <span class="badge badge-orange" style="font-size:0.6rem;">Art. 21</span></h4>
+                    <p>Opporsi in qualsiasi momento al trattamento per finalità di marketing diretto o basato su legittimo interesse.</p>
+                </div>
+                <div class="right-item">
+                    <h4>↩️ Revoca del Consenso <span class="badge badge-blue" style="font-size:0.6rem;">Art. 7</span></h4>
+                    <p>Revocare in qualsiasi momento il consenso, senza pregiudicare la liceità del trattamento precedente alla revoca.</p>
+                </div>
+                <div class="right-item">
+                    <h4>🏛️ Diritto di Reclamo <span class="badge badge-gray" style="font-size:0.6rem;">Art. 77</span></h4>
+                    <p>Proporre reclamo al Garante Privacy (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">garanteprivacy.it</a>) se ritieni che il trattamento violi il GDPR.</p>
+                </div>
+            </div>
+
+            <div class="info-box reveal" style="margin-top:2rem; background:rgba(34,197,94,0.06); border-color:rgba(34,197,94,0.2);">
+                <p class="info-box-title" style="color:var(--color-green);">Come Esercitare i Tuoi Diritti</p>
+                <dl>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:info@aipiutempo.it">info@aipiutempo.it</a> — risposta entro 30 giorni (art. 12 GDPR)</dd>
+                    <dt>Oggetto</dt>
+                    <dd>"Esercizio diritti GDPR — [tipo di richiesta]"</dd>
+                    <dt>Da includere</dt>
+                    <dd>Nome, cognome, email usata per contattarci, descrizione della richiesta</dd>
+                </dl>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 7 — COOKIE POLICY
+         ======================== -->
+    <section class="legal-section" id="cookie">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Cookie Policy</p>
+                <h2>Cosa sono i Cookie<br>e come li utilizziamo</h2>
+                <p>
+                    I cookie sono piccoli file di testo salvati nel browser durante la visita. Questa sezione descrive i cookie di <strong>aipiutempo.it</strong> in conformità alla Direttiva ePrivacy (2002/58/CE) e al GDPR.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">📋</span> Tipologie di Cookie</h3>
+                <ul>
+                    <li><strong>Cookie tecnici (strettamente necessari):</strong> indispensabili per il funzionamento del sito. <strong>Non richiedono consenso</strong> (art. 122 D.Lgs. 196/2003). Includono la memorizzazione delle preferenze cookie.</li>
+                    <li><strong>Cookie analitici:</strong> raccolgono dati anonimi sull'utilizzo del sito (pagine visitate, durata, sorgente). Richiedono consenso se non anonimizzati e aggregati.</li>
+                    <li><strong>Cookie di profilazione/marketing:</strong> tracciano i comportamenti per pubblicità personalizzata. Richiedono sempre consenso esplicito e preventivo.</li>
+                </ul>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">📊</span> Cookie Utilizzati su Questo Sito</h3>
+                <div class="cookie-table-wrapper">
+                    <table class="cookie-table">
+                        <thead>
+                            <tr>
+                                <th>Nome Cookie</th>
+                                <th>Tipo</th>
+                                <th>Fornitore</th>
+                                <th>Finalità</th>
+                                <th>Durata</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>aipt_cookie</td>
+                                <td><span class="badge badge-green">Tecnico</span></td>
+                                <td>AI+Tempo (1st party)</td>
+                                <td>Memorizza la preferenza di consenso cookie espressa tramite il banner</td>
+                                <td>12 mesi</td>
+                            </tr>
+                            <tr>
+                                <td>_ga, _gid, _gat</td>
+                                <td><span class="badge badge-blue">Analitico</span></td>
+                                <td>Google Analytics</td>
+                                <td>Statistiche anonime sulle visite (pagine viste, sessioni). <strong>Attualmente non attivo.</strong></td>
+                                <td>2 anni / 24h / 1 min</td>
+                            </tr>
+                            <tr>
+                                <td>Google Fonts cache</td>
+                                <td><span class="badge badge-gray">Tecnico</span></td>
+                                <td>Google LLC</td>
+                                <td>Cache browser per font tipografici. Non memorizzato come cookie ma come risorsa.</td>
+                                <td>Sessione / cache</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">🔗</span> Cookie di Terze Parti</h3>
+                <p>Il sito carica risorse da domini terzi (Google Fonts). Per informazioni sui loro cookie:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google LLC — Privacy &amp; Terms</a></li>
+                </ul>
+                <p>Puoi gestire questi cookie tramite le impostazioni del tuo browser o nella sezione Gestione Cookie qui sotto.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 8 — GESTIONE COOKIE
+         ======================== -->
+    <section class="legal-section band" id="gestione-cookie">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Gestione Cookie</p>
+                <h2>Gestisci le tue preferenze<br>direttamente qui</h2>
+                <p>Puoi modificare le preferenze in qualsiasi momento. I cookie tecnici non possono essere disattivati: sono necessari al funzionamento del sito.</p>
+            </div>
+
+            <div class="card cookie-panel reveal">
+                <h3>Le tue preferenze attuali</h3>
+
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <p>Cookie Tecnici (Necessari)</p>
+                        <span>Indispensabili per il funzionamento del sito e la memorizzazione delle preferenze cookie.</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;">
+                        <span class="toggle-required">sempre attivi</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-tech" disabled checked>
+                            <label for="toggle-tech" class="toggle-label"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <p>Cookie Analitici</p>
+                        <span>Aiutano a capire come viene utilizzato il sito (dati aggregati e anonimi). Attualmente non attivi.</span>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="toggle-analytics">
+                        <label for="toggle-analytics" class="toggle-label"></label>
+                    </div>
+                </div>
+
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <p>Cookie di Profilazione / Marketing</p>
+                        <span>Pubblicità personalizzata. Non utilizzati su questo sito.</span>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="toggle-marketing">
+                        <label for="toggle-marketing" class="toggle-label"></label>
+                    </div>
+                </div>
+
+                <button class="cookie-save-btn" id="save-prefs-btn">Salva le mie preferenze</button>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2" style="margin-top:1.5rem;">
+                <h3><span class="art-icon">🖥️</span> Gestione Cookie dal Browser</h3>
+                <p>Puoi gestire, bloccare o eliminare i cookie dalle impostazioni del tuo browser:</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                    <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+                    <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                    <li><a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">YourAdChoices (opt-out pubblicità)</a></li>
+                </ul>
+                <p><strong>Attenzione:</strong> disabilitare tutti i cookie potrebbe compromettere alcune funzionalità del sito.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========================
+         SEZ. 9 — TERMINI
+         ======================== -->
+    <section class="legal-section" id="termini">
+        <div class="container">
+
+            <div class="legal-section-header reveal">
+                <p class="section-label">Termini di Servizio</p>
+                <h2>Termini e Condizioni<br>di Utilizzo</h2>
+                <p>
+                    I presenti Termini regolano l'utilizzo del sito <strong>aipiutempo.it</strong> e i servizi offerti da AI+Tempo.
+                    Accedendo al sito, l'utente accetta integralmente i presenti termini.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">🏢</span> Identificazione del Fornitore</h3>
+                <p>
+                    Il sito è gestito da <strong>Marco Diozzi — AI+Tempo</strong>, con sede in Italia (02191120381).
+                    Contatti: <a href="mailto:info@aipiutempo.it">info@aipiutempo.it</a>.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">🎯</span> Oggetto del Servizio</h3>
+                <p>AI+Tempo offre consulenza, progettazione e implementazione di automazioni e workflow digitali per ASD/ETS, artigiani e micro-PMI. Nello specifico:</p>
+                <ul>
+                    <li>Analisi e mappatura dei flussi operativi esistenti</li>
+                    <li>Progettazione di soluzioni di automazione (n8n, Google Workspace, Telegram bot)</li>
+                    <li>Implementazione, test e rilascio in produzione</li>
+                    <li>Formazione operativa e supporto post-lancio</li>
+                </ul>
+                <p>
+                    L'analisi preliminare è gratuita e non vincolante. I servizi di implementazione sono soggetti ad accordo contrattuale separato con preventivo scritto.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">💡</span> Uso Corretto del Sito</h3>
+                <p>L'utente si impegna a utilizzare il sito in modo lecito. È vietato:</p>
+                <ul>
+                    <li>Tentare di accedere senza autorizzazione a sistemi informatici collegati al sito</li>
+                    <li>Inviare contenuti spam, offensivi o illegali tramite il modulo di contatto</li>
+                    <li>Utilizzare strumenti automatizzati (bot, scraper) per raccogliere dati senza autorizzazione scritta</li>
+                    <li>Riprodurre o distribuire il contenuto del sito senza autorizzazione scritta del Titolare</li>
+                </ul>
+            </div>
+
+            <div class="card legal-article reveal">
+                <h3><span class="art-icon">⚖️</span> Limitazione di Responsabilità</h3>
+                <p>
+                    AI+Tempo si impegna a mantenere le informazioni aggiornate, ma non garantisce la completezza o l'assenza di errori. Il sito può subire interruzioni per manutenzione o cause tecniche.
+                </p>
+                <p>
+                    AI+Tempo non è responsabile per danni diretti o indiretti derivanti dall'utilizzo del sito, salvo i casi di dolo o colpa grave previsti dalla legge. I link a siti di terze parti sono forniti a titolo informativo: AI+Tempo non risponde dei loro contenuti.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-1">
+                <h3><span class="art-icon">🖊️</span> Proprietà Intellettuale</h3>
+                <p>
+                    Tutti i contenuti presenti su aipiutempo.it — testi, grafica, loghi, design e software — sono proprietà esclusiva di AI+Tempo o dei rispettivi titolari, protetti dalla L. 633/1941 (diritto d'autore) e dalla normativa comunitaria. È vietata qualsiasi riproduzione senza previo consenso scritto, ad eccezione dell'uso personale non commerciale.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-2">
+                <h3><span class="art-icon">🌍</span> Legge Applicabile e Foro Competente</h3>
+                <p>
+                    I presenti Termini sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Foro della sede del Titolare, salvo diverso accordo scritto. Per i consumatori (art. 66-bis D.Lgs. 206/2005) resta ferma la competenza del giudice del luogo di residenza o domicilio.
+                </p>
+            </div>
+
+            <div class="card legal-article reveal reveal-delay-3">
+                <h3><span class="art-icon">🔄</span> Modifiche ai Termini</h3>
+                <p>
+                    AI+Tempo si riserva il diritto di modificare i presenti Termini e la Privacy Policy. Le modifiche sono pubblicate su questa pagina con indicazione della data di aggiornamento. L'uso continuato del sito costituisce accettazione delle modifiche. Per cambiamenti sostanziali relativi a clienti o utenti registrati, sarà inviata notifica via email.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================
+         FOOTER
+         ======================== -->
+    <footer class="footer">
+        <a href="index.html">
+            <img src="assets/logo-full.png" alt="AI+Tempo" class="logo-img-footer">
+        </a>
+        <p>&copy; 2026 AI+Tempo - brand di Diozzi Marco P.Iva 02191120381 - Cento - FE</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#cookie">Cookie Policy</a>
+            <a href="#termini">Termini di servizio</a>
+        </div>
+    </footer>
+
+    <!-- ========================
+         GDPR COOKIE BANNER
+         ======================== -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Consenso cookie">
+        <p class="cookie-text">
+            <strong>🍪 Cookie e Privacy.</strong>
+            Usiamo solo cookie tecnici necessari al funzionamento del sito. Nessuna profilazione senza consenso.
+            <a href="#cookie">Cookie Policy</a> &middot; <a href="#privacy">Privacy Policy</a>
+        </p>
+        <div class="cookie-actions">
+            <button class="btn-cookie-reject" id="cookie-reject">Solo necessari</button>
+            <button class="btn-cookie-accept" id="cookie-accept">Accetta tutti</button>
+        </div>
+    </div>
+
+    <!-- ========================
+         JS
+         ======================== -->
+    <script>
+        // ---- Hamburger menu ----
+        var hamburger  = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // ---- Scroll Reveal ----
+        var revealEls = document.querySelectorAll('.reveal');
+        var observer  = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        revealEls.forEach(function (el) { observer.observe(el); });
+
+        // ---- GDPR Cookie Banner ----
+        (function () {
+            var banner = document.getElementById('cookie-banner');
+            if (!banner) return;
+            var stored = localStorage.getItem('aipt_cookie');
+            if (stored) {
+                banner.classList.add('hidden');
+                if (stored === 'all') {
+                    var tA = document.getElementById('toggle-analytics');
+                    var tM = document.getElementById('toggle-marketing');
+                    if (tA) tA.checked = true;
+                    if (tM) tM.checked = true;
+                }
+                return;
+            }
+            document.getElementById('cookie-accept').addEventListener('click', function () {
+                localStorage.setItem('aipt_cookie', 'all');
+                banner.classList.add('hidden');
+                var tA = document.getElementById('toggle-analytics');
+                var tM = document.getElementById('toggle-marketing');
+                if (tA) tA.checked = true;
+                if (tM) tM.checked = true;
+            });
+            document.getElementById('cookie-reject').addEventListener('click', function () {
+                localStorage.setItem('aipt_cookie', 'necessary');
+                banner.classList.add('hidden');
+            });
+        })();
+
+        // ---- Cookie preference panel (in-page toggles) ----
+        (function () {
+            var saveBtn = document.getElementById('save-prefs-btn');
+            if (!saveBtn) return;
+            var stored = localStorage.getItem('aipt_cookie');
+            if (stored === 'all') {
+                var tA = document.getElementById('toggle-analytics');
+                var tM = document.getElementById('toggle-marketing');
+                if (tA) tA.checked = true;
+                if (tM) tM.checked = true;
+            }
+            saveBtn.addEventListener('click', function () {
+                var analytics = document.getElementById('toggle-analytics').checked;
+                var marketing = document.getElementById('toggle-marketing').checked;
+                localStorage.setItem('aipt_cookie', (analytics || marketing) ? 'all' : 'necessary');
+                saveBtn.textContent = 'Preferenze salvate ✓';
+                saveBtn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                setTimeout(function () {
+                    saveBtn.textContent = 'Salva le mie preferenze';
+                    saveBtn.style.background = '';
+                }, 2500);
+            });
+        })();
+    </script>
+
+</body>
+</html>
